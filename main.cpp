@@ -13,7 +13,7 @@ int main()
     cout<<"app"<<endl;
     eco.afficher_Employe();
     eco.supprimer_Employe('µµµµµµ');
-    eco.ajouter(Employe);
+    eco.ajouter.(Employe);
     cout<<"app "<<endl;
 
     return 0;
