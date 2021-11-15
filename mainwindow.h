@@ -37,6 +37,25 @@ private slots:
 
     void on_Valider_2_clicked();
 
+
+
+
+
+
+
+    void on_Ccin_clicked();
+
+    void on_Tid_clicked();
+
+
+
+
+    void on_Cid_clicked();
+
+    void on_Cprenom_clicked();
+
+    void on_actualiser_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

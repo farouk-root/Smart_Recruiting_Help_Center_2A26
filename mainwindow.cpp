@@ -42,13 +42,14 @@ void MainWindow::on_ajouter_clicked()
 
 void MainWindow::on_valider_clicked()
 {
+
     ui->stackedWidget->setCurrentIndex(0);
        int id = ui->id->text().toInt();
        QString nom = ui->nom->text();
        QString prenom = ui->prenom->text();
        int cin = ui->cin->text().toInt();
        QString ddn = ui->ddn->text();
-      float salaire = ui->salaire->text().toFloat();
+      float salaire = ui->salaire->text().toInt(); //toFloat
        employes e(id,nom,prenom,cin,ddn,salaire) ;
 bool controle=e.controle_saisie();
 bool control=e.controle_saisie_champ(e);
@@ -57,24 +58,12 @@ bool controln=e.verifnom(nom);
 bool controlp=e.verifnom(prenom);
 
   bool test;
-if(controle==false) {
+if( (controle==false) ||(control==false) || (controlp==false) || (controln==false) ) {
     QMessageBox::information(nullptr, QObject::tr(""),
                              QObject::tr("Cin doit etre 8 chiffres \n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
      }
-else if (control==false)
-{  QMessageBox::information(nullptr, QObject::tr("Un champ est manquant"),
-                            QObject::tr("Click Cancel to exit."), QMessageBox::Cancel); }
-else if ( controln==false)
-{
-    (nullptr, QObject::tr("Le nom ne peut pas contenir des chiffres "),
-                                QObject::tr("Click Cancel to exit."), QMessageBox::Cancel);
-}
-else if (controlp==false)
-{
-    (nullptr, QObject::tr("Le prenom ne peut pas contenir des chiffres "),
-                                QObject::tr("Click Cancel to exit."), QMessageBox::Cancel);
-}
+
 else{
 test=e.ajouter();
 if(test)
@@ -165,7 +154,7 @@ void MainWindow::on_supprimer_2_clicked()
             e.setid(ui->comboBox_2->currentText().toInt());
 
             bool test;
-            test=e.supprime(e.getid());
+            test=e.supprime();
             if(test)
             { ui->tableView->setModel(e.afficher());
                 QMessageBox::information(nullptr, QObject::tr("supp avec succes"),
@@ -218,3 +207,50 @@ void MainWindow::on_Valider_2_clicked()
 
 }
 }
+
+
+
+
+void MainWindow::on_Ccin_clicked()
+{
+    employes e;
+    QString A=ui->lineEdit->text();
+    ui->tableView->setModel(e.rechercherCin(A));
+
+    if(A=="")
+            ui->tableView->setModel(e.afficher());
+}
+
+
+
+
+void MainWindow::on_Tid_clicked()
+{
+    employes e;
+
+  ui->tableView->setModel(e.tri(e.getnom()));
+}
+
+void MainWindow::on_Cid_clicked()
+{
+    employes e;
+    QString A=ui->lineEdit->text();
+    ui->tableView->setModel(e.rechercherid(A));
+}
+
+
+
+void MainWindow::on_Cprenom_clicked()
+{
+    employes e;
+    QString A=ui->lineEdit->text();
+    ui->tableView->setModel(e.rechercherP(A));
+
+}
+
+void MainWindow::on_actualiser_clicked()
+{
+    employes e;
+    ui->tableView->setModel(e.afficher());
+}
+

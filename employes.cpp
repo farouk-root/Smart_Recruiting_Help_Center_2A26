@@ -1,7 +1,4 @@
 #include "employes.h"
-
-
-
 #include <QSqlQuery>
 #include <QDebug>
 #include <iostream>
@@ -9,12 +6,12 @@
 employes::employes()
 {
     id=0;
-     cin=0;
-     nom="";
-     prenom="";
+    cin=0;
+    nom="";
+    prenom="";
 
-     ddn="";
-     salaire=0;
+    ddn="";
+    salaire=0;
 
 
 
@@ -106,7 +103,7 @@ bool employes::ajouter()
      return query.exec();
  }
 
- bool employes::supprime(int id)
+ bool employes::supprime()
  {
      QSqlQuery query;
           query.prepare("delete from employes where id=:id");
@@ -136,7 +133,7 @@ bool employes::verifnom(QString n)
 {
     for(int i=0;i<n.length();i++)
     {
-        if((n[i]<'a' && n[i]<'z') || (n[i]<'A' && n[i]<'Z' ) )
+        if((n[i]<'a' && n[i]<'z') && (n[i]<'A' && n[i]<'Z' ) )
             return false;
 
     }
@@ -146,3 +143,87 @@ bool employes::verifnom(QString n)
 
 
 }
+QSqlQueryModel * employes::rechercherCin (const QString &aux)
+
+{
+
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+    model->setQuery("select * from employes WHERE(cin='"+aux+"' )");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ddn"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+
+    return model;
+}
+
+
+
+
+QSqlQueryModel * employes::rechercherid (const QString &aux)
+
+{
+
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+    model->setQuery("select * from employes WHERE(id='"+aux+"' )");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ddn"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+
+    return model;
+}
+
+
+QSqlQueryModel * employes::rechercherP (const QString &aux)
+
+{
+
+
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+    model->setQuery("select * from employes WHERE(prenom='"+aux+"' )");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ddn"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+
+    return model;
+}
+
+
+
+
+QSqlQueryModel *  employes::tri( QString y)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+   model->setQuery("select * from employes order by prenom+"+y);
+
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+   model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("cin"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("ddn"));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+
+    return model;
+}
+
+
+
+
+
+
+
+

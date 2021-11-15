@@ -36,10 +36,15 @@ public:
 
       QSqlQueryModel * afficher();
       bool modifier(int,QString,QString,int,QString,float);
-      bool supprime(int);
+      bool supprime();
       bool controle_saisie();
       bool controle_saisie_champ(employes e);
       bool verifnom(QString n);
+      QSqlQueryModel * rechercher (const QString &aux);
+      QSqlQueryModel * rechercherP (const QString &aux);
+      QSqlQueryModel * rechercherid (const QString &aux);
+      QSqlQueryModel * rechercherCin (const QString &aux);
+      QSqlQueryModel * tri( QString y);
 
 private :
    int id;
@@ -47,7 +52,7 @@ private :
    QString prenom;
 
    QString ddn;
-   float salaire;
+   int salaire; //kent float
    int cin;
 
 
