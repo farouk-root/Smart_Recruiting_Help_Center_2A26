@@ -44,7 +44,9 @@ public:
       QSqlQueryModel * rechercherP (const QString &aux);
       QSqlQueryModel * rechercherid (const QString &aux);
       QSqlQueryModel * rechercherCin (const QString &aux);
-      QSqlQueryModel * tri( QString y);
+      QSqlQueryModel * tri();
+      QSqlQueryModel * tric();
+       QSqlQueryModel * trid();
 
 private :
    int id;

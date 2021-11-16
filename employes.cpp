@@ -204,11 +204,11 @@ QSqlQueryModel * employes::rechercherP (const QString &aux)
 
 
 
-QSqlQueryModel *  employes::tri( QString y)
+QSqlQueryModel *  employes::tri()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
-   model->setQuery("select * from employes order by prenom+"+y);
+   model->setQuery("select * from employes order by prenom");
 
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
@@ -220,9 +220,37 @@ QSqlQueryModel *  employes::tri( QString y)
     return model;
 }
 
+QSqlQueryModel *  employes::tric()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
 
+   model->setQuery("select * from employes order by id");
 
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+   model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("cin"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("ddn"));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
 
+    return model;
+}
+
+QSqlQueryModel *  employes::trid()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+   model->setQuery("select * from employes order by ddn");
+
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+   model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("cin"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("ddn"));
+   model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+
+    return model;
+}
 
 
 

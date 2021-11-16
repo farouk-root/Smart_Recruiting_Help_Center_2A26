@@ -226,9 +226,11 @@ void MainWindow::on_Ccin_clicked()
 
 void MainWindow::on_Tid_clicked()
 {
+    //QString y;
     employes e;
+    //y="";
 
-  ui->tableView->setModel(e.tri(e.getnom()));
+  ui->tableView->setModel(e.tri());
 }
 
 void MainWindow::on_Cid_clicked()
@@ -254,3 +256,26 @@ void MainWindow::on_actualiser_clicked()
     ui->tableView->setModel(e.afficher());
 }
 
+
+void MainWindow::on_Tcin_clicked()
+{
+    //QString y;
+    employes e;
+    //y="";
+
+  ui->tableView->setModel(e.tric());
+}
+
+
+
+
+void MainWindow::on_Tprenom_clicked()
+{
+
+        //QString y;
+        employes e;
+        //y="";
+
+      ui->tableView->setModel(e.trid());
+
+}

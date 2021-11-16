@@ -56,6 +56,10 @@ private slots:
 
     void on_actualiser_clicked();
 
+    void on_Tcin_clicked();
+
+    void on_Tprenom_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
