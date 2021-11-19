@@ -118,12 +118,14 @@ bool employes::ajouter()
         else
             return false;
  }
-bool employes::controle_saisie_champ(employes e)
+bool employes::controle_saisie_champ()
  {
-    QString salaire_string=QString::number(salaire);
+    //QString salaire_string=QString::number(salaire);
+    QString b;
+    b.setNum(salaire);
            QString cin_string = QString::number(cin);
           QString id_string=QString::number(id);
-     if((cin_string=="")||(id_string=="")||(e.getddn()=="")||(e.getprenom()=="")||(e.getnom()=="")||(salaire_string==""))
+     if((prenom=="")||(nom=="")||(b==""))
          return  false;
      else
          return true;
@@ -220,7 +222,7 @@ QSqlQueryModel *  employes::tri()
     return model;
 }
 
-QSqlQueryModel *  employes::tric()
+QSqlQueryModel *  employes::trid()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
@@ -236,11 +238,11 @@ QSqlQueryModel *  employes::tric()
     return model;
 }
 
-QSqlQueryModel *  employes::trid()
+QSqlQueryModel *  employes::tric()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
-   model->setQuery("select * from employes order by ddn");
+   model->setQuery("select * from employes order by cin");
 
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
    model->setHeaderData(1, Qt::Horizontal,  QObject::tr("nom"));
@@ -255,3 +257,16 @@ QSqlQueryModel *  employes::trid()
 
 
 
+QSqlQueryModel * employes::rechercher1(QString a)
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM employes WHERE (id LIKE '%"+a+"%' OR nom LIKE '%"+a+"%' OR prenom LIKE '%"+a+"%' OR cin LIKE '%"+a+"%' OR ddn LIKE '%"+a+"%' OR salaire LIKE '%"+a+"%' ) ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal,QObject::tr("nom"));
+model->setHeaderData(2, Qt::Horizontal,QObject::tr("prenom"));
+model->setHeaderData(3, Qt::Horizontal,QObject::tr("cin"));
+model->setHeaderData(4, Qt::Horizontal,QObject::tr("ddn"));
+model->setHeaderData(5, Qt::Horizontal,QObject::tr("salaire"));
+
+    return model;
+}

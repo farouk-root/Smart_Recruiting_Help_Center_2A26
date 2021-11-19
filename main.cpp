@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     connection c;
+    a.setStyle("fusion") ;
+
 
 
     bool test=c.createconnect();
