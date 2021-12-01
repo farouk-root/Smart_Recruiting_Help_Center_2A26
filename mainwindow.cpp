@@ -38,6 +38,10 @@
 #include <iostream>
 #include <fstream>
 #include <QtSvg/QSvgRenderer>
+
+#include "entreprise.h"
+#include <QIntValidator>
+
 using namespace std;
 using std::uint8_t;
 using qrcodegen::QrCode;
@@ -61,7 +65,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ajouter_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
 
 }
 
@@ -451,7 +455,7 @@ QString MainWindow::on_tableView_clicked( const QModelIndex &index)
 
 /*void MainWindow::on_pushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 
@@ -533,7 +537,7 @@ void MainWindow::on_nom_textEdited(const QString &arg1)
 
 void MainWindow::on_pushButton_2_clicked()
 {
-   ui->stackedWidget->setCurrentIndex(0);
+   ui->stackedWidget->setCurrentIndex(1);
 }
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -616,10 +620,185 @@ void MainWindow::on_sendBtn_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 void MainWindow::on_exitBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Module_employe_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Module_entreprise_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+    ui->afficher->setModel(e.afficher());
+
+}
+
+void MainWindow::on_Farouk_return_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Valider_mod_farouk_clicked()
+{
+
+    int id = ui->le_id_farouk->text().toInt();
+    int num = ui->le_num_farouk->text().toInt();
+    QString nom_entreprise = ui->le_nom_farouk->text();
+    QString adress = ui->le_adress_farouk->text();
+    QString adressmail = ui->le_adressmail_farouk->text();
+    //QDate date = ui->dateEdit->date();
+   // Entreprise e (id , num , nom_entreprise , adress , adressmail , date , "contrat");
+    Entreprise e (id , num , nom_entreprise , adress , adressmail  , "contrat");
+
+
+    bool test = e.ajouter();
+
+    if(test)
+    {
+        ui->afficher->setModel(e.afficher());
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("Ajout effectue.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("Ajout non effectuée"),
+                    QObject::tr("Ajout non effectue.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+/*void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}*/
+
+void MainWindow::on_Ajouter_farouk_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+    ui->le_id_farouk->setValidator( new QIntValidator(0, 99999999, this));
+    ui->le_num_farouk->setValidator( new QIntValidator(0, 99999999, this));
+}
+
+void MainWindow::on_supprimer_farouk_clicked()
+{
+    int id=ui->le_supprimer_farouk->text().toInt();
+    bool test=e.supprimer(id);
+
+    if(test)
+    {
+         ui->afficher->setModel(e.afficher());
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("suppression effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                    QObject::tr("suppression non effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_Modifier_farouk_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+void MainWindow::on_Modifier_farouk_2_clicked()
+{
+    bool    test;
+    int id = ui->le_id_2->text().toInt();
+    int num = ui->le_num_2->text().toInt();
+    QString nom_entreprise = ui->le_nom_2->text();
+    QString adress = ui->le_adress_2->text();
+    QString adressmail = ui->le_adressmail_2->text();
+     test =  e.modifier (id , num , nom_entreprise , adress , adressmail  , "contrat");
+
+          if (test)
+          {
+                  ui->afficher->setModel(e.afficher());
+              QMessageBox::information(nullptr,QObject::tr("OK"),
+                                   QObject::tr("modification établie"),
+                                   QMessageBox::Ok);}
+          else{
+          QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
+                                  QObject::tr("modification non établie"),
+                                  QMessageBox::Cancel);}
+          ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_Trie_botton_clicked()
+{
+    ui->afficher->setModel(e.sortid_down());
+}
+
+void MainWindow::on_Tri_nom_clicked()
+{
+    ui->afficher->setModel(e.sortname());
+}
+
+void MainWindow::on_Tri_adresse_clicked()
+{
+    ui->afficher->setModel(e.sortadress());
+}
+
+void MainWindow::on_rechercheID_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+                   QSqlQuery   *query= new QSqlQuery();
+           if(ui->rechercheID->text()==arg1)
+                   {
+               query->prepare("SELECT * FROM ENTREPRISES WHERE ID_ENTREPRISE LIKE'"+arg1+"%'");//
+       query->exec();
+           model->setQuery(*query);
+       ui->afficher->setModel(model);
+}
+}
+
+void MainWindow::on_rechercheNom_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+                   QSqlQuery   *query= new QSqlQuery();
+           if(ui->rechercheNom->text()==arg1)
+                   {
+               query->prepare("SELECT * FROM ENTREPRISES WHERE NOM_ENTREPRISE LIKE'"+arg1+"%'");//
+       query->exec();
+           model->setQuery(*query);
+       ui->afficher->setModel(model);
+}
+}
+
+void MainWindow::on_rechercheAdresse_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+                   QSqlQuery   *query= new QSqlQuery();
+           if(ui->rechercheAdresse->text()==arg1)
+                   {
+               query->prepare("SELECT * FROM ENTREPRISES WHERE COLUMN3 LIKE'"+arg1+"%'");//
+       query->exec();
+           model->setQuery(*query);
+       ui->afficher->setModel(model);
+}
+}
+
+void MainWindow::on_Email_farouk_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+
+}
+
+void MainWindow::on_Map_farouk_clicked()
+{
+    ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+    ui->quickWidget->show();
 }

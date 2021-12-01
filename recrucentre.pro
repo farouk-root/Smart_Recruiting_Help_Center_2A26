@@ -4,7 +4,7 @@ QT+=network
 QT +=svg
 QT       += core gui multimedia multimediawidgets
 QT       +=widgets
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
 
@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connection.cpp \
     employes.cpp \
+    entreprise.cpp \
     main.cpp \
     mainwindow.cpp \
     qrcode.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 HEADERS += \
     connection.h \
     employes.h \
+    entreprise.h \
     mainwindow.h \
     qrcode.h \
     qrwidget.h \
@@ -52,4 +54,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    backgroun.qrc
+    backgroun.qrc \
+    qml.qrc

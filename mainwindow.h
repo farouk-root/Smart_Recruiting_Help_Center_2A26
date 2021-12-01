@@ -6,6 +6,7 @@
 
 #include "smtpp.h"
 #include "smtp.h"
+#include "entreprise.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -95,6 +96,21 @@ private slots:
 
    void on_pushButton_4_clicked();
 
+   void on_Valider_mod_farouk_clicked();
+
+   void on_Trie_botton_clicked();
+
+   void on_Tri_nom_clicked();
+
+   void on_Tri_adresse_clicked();
+
+   void on_rechercheID_textChanged(const QString &arg1);
+
+   void on_rechercheNom_textChanged(const QString &arg1);
+
+   void on_rechercheAdresse_textChanged(const QString &arg1);
+
+
 
    void sendMail(QString email);
        void mailSent(QString);
@@ -105,7 +121,34 @@ private slots:
 
        void on_exitBtn_clicked();
 
+       void on_Module_employe_clicked();
+
+       void on_pushButton_6_clicked();
+
+       void on_Module_entreprise_clicked();
+
+       void on_affichage_clicked(const QModelIndex &index);
+
+       void on_affichage_activated(const QModelIndex &index);
+
+       void on_Farouk_return_clicked();
+
+       void on_Ajouter_farouk_clicked();
+
+       void on_supprimer_farouk_clicked();
+
+       void on_Modifier_farouk_clicked();
+
+       void on_Modifier_farouk_2_clicked();
+
+
+
+       void on_Email_farouk_clicked();
+
+       void on_Map_farouk_clicked();
+
 private:
     Ui::MainWindow *ui;
+    Entreprise e;
 };
 #endif // MAINWINDOW_H

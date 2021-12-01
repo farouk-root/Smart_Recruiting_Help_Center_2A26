@@ -17,8 +17,8 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>0</y>
+      <x>40</x>
+      <y>-10</y>
       <width>1181</width>
       <height>791</height>
      </rect>
@@ -32,7 +32,61 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="page_0">
+     <widget class="QPushButton" name="Module_employe">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>170</y>
+        <width>261</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des employes</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Module_entreprise">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>410</y>
+        <width>261</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des entreprises</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Module_offre">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>170</y>
+        <width>261</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des offres</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Module_demande">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>400</y>
+        <width>261</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gestion des demandes </string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_1">
      <widget class="QPushButton" name="ajouter">
       <property name="geometry">
        <rect>
@@ -549,6 +603,19 @@
        <string>Email</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>540</y>
+        <width>241</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return Menu</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -850,7 +917,487 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_4"/>
+    <widget class="QWidget" name="page_4">
+     <widget class="QPushButton" name="Tri_nom">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>310</y>
+        <width>101</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tri NOM</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Map_farouk">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>430</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>MAP</string>
+      </property>
+     </widget>
+     <widget class="QTableView" name="afficher">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>50</y>
+        <width>691</width>
+        <height>341</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Ajouter_farouk">
+      <property name="geometry">
+       <rect>
+        <x>822</x>
+        <y>137</y>
+        <width>251</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ajouter</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="rechercheAdresse">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>440</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Tri_adresse">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>310</y>
+        <width>121</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tri ADRESSE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="supprimer_farouk">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>510</y>
+        <width>141</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Supprimer</string>
+      </property>
+     </widget>
+     <widget class="QQuickWidget" name="quickWidget">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>470</y>
+        <width>361</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Email_farouk">
+      <property name="geometry">
+       <rect>
+        <x>822</x>
+        <y>70</y>
+        <width>241</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="rechercheID">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>440</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_supprimer_farouk">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>540</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Modifier_farouk">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>200</y>
+        <width>261</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Trie_botton">
+      <property name="geometry">
+       <rect>
+        <x>1010</x>
+        <y>310</y>
+        <width>101</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tri ID</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="rechercheNom">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>440</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Farouk_return">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>590</y>
+        <width>221</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return menu</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>410</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>rechercheID</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>410</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>rechercheNom</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>410</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>rechercheAdresse</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>175</x>
+        <y>200</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Num_fixe</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Valider_mod_farouk">
+      <property name="geometry">
+       <rect>
+        <x>495</x>
+        <y>410</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Valider</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_adress_farouk">
+      <property name="geometry">
+       <rect>
+        <x>285</x>
+        <y>300</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_nom_farouk">
+      <property name="geometry">
+       <rect>
+        <x>285</x>
+        <y>250</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_num_farouk">
+      <property name="geometry">
+       <rect>
+        <x>285</x>
+        <y>200</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_id_farouk">
+      <property name="geometry">
+       <rect>
+        <x>285</x>
+        <y>160</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>195</x>
+        <y>300</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Adress</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_adressmail_farouk">
+      <property name="geometry">
+       <rect>
+        <x>285</x>
+        <y>350</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>250</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nom_entreprise</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>195</x>
+        <y>350</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Adressmail</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>160</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID_entreprise</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QLineEdit" name="le_adressmail_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>310</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>235</x>
+        <y>120</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID_entreprise</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_28">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>160</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Num_fixe</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>260</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Adress</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>235</x>
+        <y>210</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nom_entreprise</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_nom_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>210</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Modifier_farouk_2">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>370</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Modifier</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>310</y>
+        <width>56</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Adressmail</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_adress_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>260</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_id_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>120</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_num_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>160</y>
+        <width>113</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -866,6 +1413,11 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
   <customwidget>
    <class>QRWidget</class>
    <extends>QWidget</extends>
