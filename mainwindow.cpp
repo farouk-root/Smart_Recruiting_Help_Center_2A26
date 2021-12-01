@@ -42,6 +42,9 @@
 #include "entreprise.h"
 #include <QIntValidator>
 
+#include "offre.h"
+
+
 using namespace std;
 using std::uint8_t;
 using qrcodegen::QrCode;
@@ -638,6 +641,12 @@ void MainWindow::on_pushButton_6_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+
+
+//###########################################################INTEGRATION FAROUK############################################################################
+
+
+
 void MainWindow::on_Module_entreprise_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
@@ -801,4 +810,225 @@ void MainWindow::on_Map_farouk_clicked()
 {
     ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
     ui->quickWidget->show();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//#############################################INTEGRATION DHIA###################################################################
+
+void MainWindow::on_Module_offre_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+    ui->afficher_dhia->setModel(o.afficher());
+}
+
+void MainWindow::on_Ajouter_dhia_clicked()
+{
+    ui->le_numoffre_dhia->setValidator( new QIntValidator(0, 99999999, this));
+    ui->le_num_dhia->setValidator( new QIntValidator(0, 99999999, this));
+    ui->stackedWidget->setCurrentIndex(8);
+}
+
+void MainWindow::on_Valider_ajout_offre_clicked()
+{
+    int id = ui->le_numoffre_dhia->text().toInt();
+    int num = ui->le_num_dhia->text().toInt();
+    int salaire = ui->le_salaire->text().toInt();
+    QString nom_entreprise = ui->le_nom_dhia->text();
+    QString adress = ui->le_adress_dhia->text();
+    QString etat = ui->le_etatoffre->text();
+    //QDate date = ui->dateEdit->date();
+   // Entreprise e (id , num , nom_entreprise , adress , adressmail , date , "contrat");
+    offre o (id , num , nom_entreprise , adress , etat  , salaire);
+
+    bool test = o.ajouter();
+
+    if(test)
+    {
+        ui->afficher_dhia->setModel(o.afficher());
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("Ajout effectue.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("Ajout non effectuée"),
+                    QObject::tr("Ajout non effectue.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_supprimer_offrre_clicked()
+{
+    int id=ui->le_supprimer_dhia->text().toInt();
+    bool test=o.supprimer(id);
+
+    if(test)
+    {
+         ui->afficher_dhia->setModel(o.afficher());
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("suppression effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                    QObject::tr("suppression non effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_Modifier_dhia_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_Modifier_offre_clicked()
+{
+    bool    test;
+    int id = ui->numoffre_mod->text().toInt();
+    int num = ui->numfixe_mod->text().toInt();
+    int salaire = ui->salaire_mod->text().toInt();
+    QString nom_entreprise = ui->nom_mod->text();
+    QString etat = ui->etat_mod->text();
+    QString adressmail = ui->email_mod->text();
+     test =  o.modifier (id , num , nom_entreprise , adressmail , etat  , salaire);
+
+          if (test)
+          {
+                  ui->afficher_dhia->setModel(o.afficher());
+              QMessageBox::information(nullptr,QObject::tr("OK"),
+                                   QObject::tr("modification établie"),
+                                   QMessageBox::Ok);}
+          else{
+          QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
+                                  QObject::tr("modification non établie"),
+                                  QMessageBox::Cancel);}
+          ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_return_dhia_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_Actualiser_dhia_clicked()
+{
+    ui->afficher_dhia->setModel(o.afficher());
+
+}
+
+void MainWindow::on_Trie_ID_dhia_clicked()
+{
+    ui->afficher_dhia->setModel(o.sortid_up());
+}
+
+void MainWindow::on_Tri_nom_dhia_clicked()
+{
+    ui->afficher_dhia->setModel(o.sortname());
+}
+
+void MainWindow::on_Tri_adresse_dhia_clicked()
+{
+    ui->afficher_dhia->setModel(o.sortetat());
+}
+
+void MainWindow::on_rechercheID_dhia_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+                   QSqlQuery   *query= new QSqlQuery();
+           if(ui->rechercheID_dhia->text()==arg1)
+                   {
+               query->prepare("SELECT * FROM OFFRES WHERE NUM_OFFRE LIKE'"+arg1+"%'");//
+       query->exec();
+           model->setQuery(*query);
+       ui->afficher_dhia->setModel(model);
+           }
+}
+
+void MainWindow::on_rechercheNom_dhia_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+                     QSqlQuery   *query= new QSqlQuery();
+             if(ui->rechercheNom_dhia->text()==arg1)
+                     {
+                 query->prepare("SELECT * FROM OFFRES WHERE NOM_ENTREPRISE LIKE'"+arg1+"%'");//
+         query->exec();
+             model->setQuery(*query);
+         ui->afficher_dhia->setModel(model);
+  }
+}
+
+void MainWindow::on_rechercheAdresse_dhia_textChanged(const QString &arg1)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+                   QSqlQuery   *query= new QSqlQuery();
+           if(ui->rechercheAdresse_dhia->text()==arg1)
+                   {
+               query->prepare("SELECT * FROM OFFRES WHERE ETAT_OFFRE LIKE'"+arg1+"%'");//
+       query->exec();
+           model->setQuery(*query);
+       ui->afficher_dhia->setModel(model);
+}
+}
+
+void MainWindow::on_Affecter_dhia_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(10);
+
+}
+
+void MainWindow::on_affectation_clicked()
+{
+    bool    test;
+    int num_offre = ui->numoffre_affecter->text().toInt();
+    int id_etudiant = ui->idetudiant_affecter->text().toInt();
+    /*int salaire = ui->le_salaire_m->text().toInt();
+    QString nom_entreprise = ui->le_nom_2->text();
+    QString etat = ui->le_adress_2->text();
+    QString adressmail = ui->le_adressmail_2->text();*/
+     test =  o.affecter(num_offre,id_etudiant);
+
+          if (test)
+          {
+                  ui->afficher_dhia->setModel(o.afficher());
+              QMessageBox::information(nullptr,QObject::tr("OK"),
+                                   QObject::tr("modification établie"),
+                                   QMessageBox::Ok);}
+          else{
+          QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
+                                  QObject::tr("modification non établie"),
+                                  QMessageBox::Cancel);}
+          ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_valider_points_clicked()
+{
+      bool    test;
+    int id_etudiant = ui->idetudiant_Points->text().toInt();
+    int points = ui->le_Points->text().toInt();
+    test =  o.points(id_etudiant,points);
+
+         if (test)
+         {
+                 ui->afficher_dhia->setModel(o.afficher());
+             QMessageBox::information(nullptr,QObject::tr("OK"),
+                                  QObject::tr("modification établie"),
+                                  QMessageBox::Ok);}
+         else{
+         QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
+                                 QObject::tr("modification non établie"),
+                                 QMessageBox::Cancel);}
+         ui->stackedWidget->setCurrentIndex(7);
+}
+
+void MainWindow::on_Points_dhia_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(11);
 }

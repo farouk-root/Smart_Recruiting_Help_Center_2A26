@@ -7,6 +7,8 @@
 #include "smtpp.h"
 #include "smtp.h"
 #include "entreprise.h"
+#include "offre.h"
+
 
 
 QT_BEGIN_NAMESPACE
@@ -147,8 +149,47 @@ private slots:
 
        void on_Map_farouk_clicked();
 
+       void on_Module_offre_clicked();
+
+       void on_Ajouter_dhia_clicked();
+
+       void on_Valider_ajout_offre_clicked();
+
+       void on_pushButton_8_clicked();
+
+       void on_supprimer_offrre_clicked();
+
+       void on_Modifier_dhia_clicked();
+
+       void on_Modifier_offre_clicked();
+
+       void on_return_dhia_clicked();
+
+       void on_Actualiser_dhia_clicked();
+
+       void on_Trie_ID_dhia_clicked();
+
+       void on_Tri_nom_dhia_clicked();
+
+       void on_Tri_adresse_dhia_clicked();
+
+       void on_rechercheID_dhia_textChanged(const QString &arg1);
+
+       void on_rechercheNom_dhia_textChanged(const QString &arg1);
+
+       void on_rechercheAdresse_dhia_textChanged(const QString &arg1);
+
+       void on_Affecter_dhia_clicked();
+
+       void on_affectation_clicked();
+
+       void on_valider_points_clicked();
+
+       void on_Points_dhia_clicked();
+
 private:
     Ui::MainWindow *ui;
     Entreprise e;
+    offre o ;
 };
 #endif // MAINWINDOW_H

@@ -25,6 +25,7 @@ SOURCES += \
     entreprise.cpp \
     main.cpp \
     mainwindow.cpp \
+    offre.cpp \
     qrcode.cpp \
     qrcodegeneratordemo.cpp \
     qrcodegeneratorworker.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     employes.h \
     entreprise.h \
     mainwindow.h \
+    offre.h \
     qrcode.h \
     qrwidget.h \
     smtp.h \
