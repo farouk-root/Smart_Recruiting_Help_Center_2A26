@@ -218,7 +218,18 @@ QSqlQueryModel* offre::rechercheetat(QString adresse )
         return model;
 }
 
-
+bool offre::points(int id_etudiant , int points )
+{
+    QSqlQuery query ;
+    QString res=QString::number(id_etudiant);
+    QString res2=QString::number(points);
+    query.prepare("UPDATE DEMANDES SET  POINTS=:POINTS where COLUMN1=:COLUMN1 ");
+    query.bindValue(":COLUMN1",res);
+    query.bindValue(":POINTS",res2);
+    return query.exec();
+    //poineeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet
+    //t3eeebt
+}
 
 bool offre::affecter(int num_offre , int id_etudiant )
 {
@@ -236,13 +247,4 @@ bool offre::affecter(int num_offre , int id_etudiant )
     return query.exec()&&query2.exec();
 }
 
-bool offre::points(int id_etudiant , int points )
-{
-    QSqlQuery query ;
-    QString res=QString::number(id_etudiant);
-    QString res2=QString::number(points);
-    query.prepare("UPDATE DEMANDES SET  POINTS=:POINTS where COLUMN1=:COLUMN1 ");
-    query.bindValue(":COLUMN1",res);
-    query.bindValue(":POINTS",res2);
-    return query.exec();
-}
+
