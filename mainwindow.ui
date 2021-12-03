@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1188</width>
-    <height>712</height>
+    <width>1296</width>
+    <height>877</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>110</x>
       <y>0</y>
       <width>1181</width>
       <height>791</height>
@@ -30,7 +30,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>12</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QPushButton" name="Module_employe">
@@ -41,6 +41,9 @@
         <width>261</width>
         <height>131</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Gestion des employes</string>
@@ -55,6 +58,9 @@
         <height>131</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Gestion des entreprises</string>
       </property>
@@ -68,6 +74,9 @@
         <height>131</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Gestion des offres</string>
       </property>
@@ -80,6 +89,9 @@
         <width>261</width>
         <height>131</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Gestion des demandes </string>
@@ -97,7 +109,8 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(97, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+       <string notr="true">
+background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Ajouter</string>
@@ -123,7 +136,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(97, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Valider</string>
@@ -139,7 +152,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(97, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Load</string>
@@ -222,6 +235,10 @@
         <underline>true</underline>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
+      </property>
       <property name="text">
        <string>ID</string>
       </property>
@@ -239,6 +256,10 @@
        <font>
         <underline>true</underline>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
       </property>
       <property name="text">
        <string>Nom</string>
@@ -258,6 +279,10 @@
         <underline>true</underline>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
+      </property>
       <property name="text">
        <string>Prenom</string>
       </property>
@@ -275,6 +300,10 @@
        <font>
         <underline>true</underline>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
       </property>
       <property name="text">
        <string>Salaire</string>
@@ -294,6 +323,10 @@
         <underline>true</underline>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
+      </property>
       <property name="text">
        <string>Date De Naissance</string>
       </property>
@@ -311,6 +344,10 @@
        <font>
         <underline>true</underline>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
       </property>
       <property name="text">
        <string>CIN</string>
@@ -334,6 +371,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>load</string>
@@ -359,7 +399,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(97, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>supprimer</string>
@@ -384,6 +424,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>ID</string>
       </property>
@@ -396,6 +439,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>CIN</string>
@@ -410,6 +456,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>prenom</string>
       </property>
@@ -422,6 +471,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>ID</string>
@@ -436,6 +488,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>CIN</string>
       </property>
@@ -449,6 +504,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>prenom</string>
       </property>
@@ -461,6 +519,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Actualiser</string>
@@ -501,6 +562,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>scanner qr</string>
       </property>
@@ -524,6 +588,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>camera</string>
       </property>
@@ -536,6 +603,9 @@
         <width>75</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>PDF</string>
@@ -559,7 +629,7 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(85, 0, 0);</string>
+       <string notr="true">color: rgb(80, 80, 121);</string>
       </property>
       <property name="text">
        <string>TRIER</string>
@@ -584,7 +654,8 @@
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(85, 0, 0);</string>
+       <string notr="true">color: rgb(85, 0, 0);
+color: rgb(117, 117, 176);</string>
       </property>
       <property name="text">
        <string>Recherche</string>
@@ -599,6 +670,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Email</string>
       </property>
@@ -611,6 +685,9 @@
         <width>241</width>
         <height>101</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Return Menu</string>
@@ -796,6 +873,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="sendBtn">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(69, 69, 104);</string>
+         </property>
          <property name="text">
           <string>Send</string>
          </property>
@@ -921,10 +1001,10 @@
      <widget class="QPushButton" name="Tri_nom">
       <property name="geometry">
        <rect>
-        <x>890</x>
-        <y>310</y>
-        <width>101</width>
-        <height>71</height>
+        <x>310</x>
+        <y>10</y>
+        <width>61</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -934,8 +1014,8 @@
      <widget class="QPushButton" name="Map_farouk">
       <property name="geometry">
        <rect>
-        <x>750</x>
-        <y>430</y>
+        <x>1030</x>
+        <y>670</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -948,8 +1028,8 @@
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>50</y>
-        <width>691</width>
+        <y>100</y>
+        <width>1101</width>
         <height>341</height>
        </rect>
       </property>
@@ -957,10 +1037,10 @@
      <widget class="QPushButton" name="Ajouter_farouk">
       <property name="geometry">
        <rect>
-        <x>822</x>
-        <y>137</y>
-        <width>251</width>
-        <height>51</height>
+        <x>70</x>
+        <y>450</y>
+        <width>91</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -970,8 +1050,8 @@
      <widget class="QLineEdit" name="rechercheAdresse">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>440</y>
+        <x>460</x>
+        <y>70</y>
         <width>113</width>
         <height>22</height>
        </rect>
@@ -980,10 +1060,10 @@
      <widget class="QPushButton" name="Tri_adresse">
       <property name="geometry">
        <rect>
-        <x>760</x>
-        <y>310</y>
-        <width>121</width>
-        <height>71</height>
+        <x>460</x>
+        <y>10</y>
+        <width>81</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -993,10 +1073,10 @@
      <widget class="QPushButton" name="supprimer_farouk">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>510</y>
-        <width>141</width>
-        <height>61</height>
+        <x>180</x>
+        <y>500</y>
+        <width>101</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -1006,8 +1086,8 @@
      <widget class="QQuickWidget" name="quickWidget">
       <property name="geometry">
        <rect>
-        <x>690</x>
-        <y>470</y>
+        <x>760</x>
+        <y>530</y>
         <width>361</width>
         <height>121</height>
        </rect>
@@ -1019,11 +1099,14 @@
      <widget class="QPushButton" name="Email_farouk">
       <property name="geometry">
        <rect>
-        <x>822</x>
-        <y>70</y>
-        <width>241</width>
-        <height>51</height>
+        <x>1020</x>
+        <y>0</y>
+        <width>91</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Email</string>
@@ -1032,8 +1115,8 @@
      <widget class="QLineEdit" name="rechercheID">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>440</y>
+        <x>160</x>
+        <y>70</y>
         <width>113</width>
         <height>22</height>
        </rect>
@@ -1042,8 +1125,8 @@
      <widget class="QLineEdit" name="le_supprimer_farouk">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>540</y>
+        <x>60</x>
+        <y>500</y>
         <width>113</width>
         <height>22</height>
        </rect>
@@ -1052,10 +1135,10 @@
      <widget class="QPushButton" name="Modifier_farouk">
       <property name="geometry">
        <rect>
-        <x>820</x>
-        <y>200</y>
-        <width>261</width>
-        <height>51</height>
+        <x>180</x>
+        <y>450</y>
+        <width>91</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -1065,10 +1148,10 @@
      <widget class="QPushButton" name="Trie_botton">
       <property name="geometry">
        <rect>
-        <x>1010</x>
-        <y>310</y>
-        <width>101</width>
-        <height>71</height>
+        <x>160</x>
+        <y>10</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -1078,8 +1161,8 @@
      <widget class="QLineEdit" name="rechercheNom">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>440</y>
+        <x>310</x>
+        <y>70</y>
         <width>113</width>
         <height>22</height>
        </rect>
@@ -1089,10 +1172,13 @@
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>590</y>
-        <width>221</width>
-        <height>61</height>
+        <y>620</y>
+        <width>141</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Return menu</string>
@@ -1101,8 +1187,8 @@
      <widget class="QLabel" name="label_32">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>410</y>
+        <x>170</x>
+        <y>40</y>
         <width>111</width>
         <height>21</height>
        </rect>
@@ -1114,8 +1200,8 @@
      <widget class="QLabel" name="label_33">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>410</y>
+        <x>320</x>
+        <y>40</y>
         <width>101</width>
         <height>21</height>
        </rect>
@@ -1127,8 +1213,8 @@
      <widget class="QLabel" name="label_34">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>410</y>
+        <x>470</x>
+        <y>40</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -1408,6 +1494,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Tri NOM</string>
       </property>
@@ -1441,6 +1530,9 @@
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Tri ID</string>
       </property>
@@ -1454,6 +1546,9 @@
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Supprimer</string>
       </property>
@@ -1466,6 +1561,9 @@
         <width>131</width>
         <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Affecter</string>
@@ -1500,6 +1598,9 @@
         <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Points</string>
       </property>
@@ -1512,6 +1613,9 @@
         <width>181</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Ajouter</string>
@@ -1526,6 +1630,9 @@
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Actualiser</string>
       </property>
@@ -1539,6 +1646,9 @@
         <height>71</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
       <property name="text">
        <string>Modifier</string>
       </property>
@@ -1551,6 +1661,9 @@
         <width>101</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Tri ADRESSE</string>
@@ -1574,6 +1687,9 @@
         <width>211</width>
         <height>61</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
       </property>
       <property name="text">
        <string>Return Menu</string>
@@ -2034,6 +2150,9 @@
           <height>471</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="title">
          <string>Ajout</string>
         </property>
@@ -2444,7 +2563,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1188</width>
+     <width>1296</width>
      <height>22</height>
     </rect>
    </property>
