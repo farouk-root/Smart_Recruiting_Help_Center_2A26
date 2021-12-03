@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     connection.cpp \
+    demande.cpp \
     employes.cpp \
     entreprise.cpp \
     main.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
 
 HEADERS += \
     connection.h \
+    demande.h \
     employes.h \
     entreprise.h \
     mainwindow.h \

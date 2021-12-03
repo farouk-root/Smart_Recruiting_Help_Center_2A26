@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 
     connection c;
     a.setStyle("fusion") ;
+    qApp->setStyleSheet("QLineEdit { background-color: grey }");
 
 
 

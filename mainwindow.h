@@ -8,6 +8,7 @@
 #include "smtp.h"
 #include "entreprise.h"
 #include "offre.h"
+#include "demande.h"
 
 
 
@@ -187,9 +188,27 @@ private slots:
 
        void on_Points_dhia_clicked();
 
+       void on_nettoyer_clicked();
+
+       void on_ajouter_manef_clicked();
+       void on_le_tri_clicked();
+       void on_pb_edit_clicked();
+       void on_pb_search_clicked();
+       void on_pb_del_clicked();
+
+
+       void on_Module_demande_clicked();
+
+       void on_pb_search_2_clicked();
+
+       void on_pb_edit_2_clicked();
+
+       void on_le_tri_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Entreprise e;
     offre o ;
+    Demande D;
 };
 #endif // MAINWINDOW_H

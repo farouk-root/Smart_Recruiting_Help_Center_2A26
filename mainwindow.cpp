@@ -35,6 +35,16 @@
 #include <qrcode.h>
 
 
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "demande.h"
+#include <QMessageBox>
+#include <QIntValidator>
+#include <QPushButton>
+
+
+
 #include <iostream>
 #include <fstream>
 #include <QtSvg/QSvgRenderer>
@@ -1031,4 +1041,154 @@ void MainWindow::on_valider_points_clicked()
 void MainWindow::on_Points_dhia_clicked()
 {
     ui->stackedWidget->setCurrentIndex(11);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#############################################INTEGRATION MANEF###################################################################
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_pb_del_clicked()
+{
+    Demande D1; D1.setid(ui->le_id_supp_2->text().toInt());
+    bool test=D1.supprimer(D1.getid());
+    QMessageBox msgBox;
+    if(test) {
+        msgBox.setText("Suppression avec succes.");
+    ui->tableView_3->setModel(D.afficher());
+}
+
+    else
+        msgBox.setText("Echec de suppression");
+        msgBox.exec();
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_ajouter_manef_clicked()
+{
+    int id=ui->le_id_3->text().toInt();
+    QString nom=ui->le_nom_3->text();
+    QString prenom=ui->le_prenom_2->text();
+    QString etablissement=ui->l_etablissement_2->text();
+    QString mail=ui->le_mail_2->text();
+    QString date_de_naissance=ui->la_date_2
+            ->text();
+    QString nom_entreprise=ui->entreprise_2->text();
+  Demande D(id,nom,prenom,etablissement,mail,date_de_naissance,nom_entreprise);
+  bool test=D.ajouter();
+  QMessageBox msgBox;
+  if(test){
+      msgBox.setText("Bien, ajout avec succes.");
+  ui->tableView_3->setModel(D.afficher());
+  }
+  else
+      msgBox.setText("Erreur au niveau de l'ajout!");
+      msgBox.exec();
+}
+
+void MainWindow::on_Module_demande_clicked()
+{
+    ui->tableView_3->setModel(D.afficher());
+     ui->stackedWidget->setCurrentIndex(12);
+}
+
+void MainWindow::on_pb_search_2_clicked()
+{
+    QString no =ui->le_search_2->text();
+    ui->tableView_3->setModel(D.rechercher(ui->le_search_2->text()));
+
+
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+   ui->tableView_3->setModel(D.afficher());
+}
+
+void MainWindow::on_pb_edit_2_clicked()
+{
+    QString s=ui->le_id_3->text();
+
+        int id=ui->le_id_3->text().toInt();
+        QString nom=ui->le_nom_3->text();
+        QString prenom=ui->le_prenom_2->text();
+        QString etablissement=ui->l_etablissement_2->text();
+        QString mail=ui->le_mail_2->text();
+        QString date_de_naissance=ui->la_date_2->text();
+        QString nom_entreprise=ui->entreprise_2->text();
+      Demande D(id,nom,prenom,etablissement,mail,date_de_naissance,nom_entreprise);
+        bool test=D.modifier();
+            if(test)
+            {
+                QMessageBox::information(nullptr, QObject::tr("modifier"),
+                            QObject::tr("modifier avec succes.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+
+                ui->tableView_3->setModel(D.afficher());
+
+
+            }
+            else
+            {QMessageBox::critical(nullptr, QObject::tr("Erreur"),
+                            QObject::tr("Modifier non effectué.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+            }
+}
+
+void MainWindow::on_le_tri_2_clicked()
+{
+ ui->tableView_3->setModel(D.sortid_up());
 }
