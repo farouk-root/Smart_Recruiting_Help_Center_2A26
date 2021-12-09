@@ -4,13 +4,18 @@
 #include <QApplication>
 #include <QApplication>
 #include <QDebug>
+#include <QDialog>
+#include <QLineEdit>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
     connection c;
     a.setStyle("fusion") ;
-    qApp->setStyleSheet("QLineEdit { background-color: grey }");
+    //qApp->setStyleSheet("QLineEdit { background-color: yellow }");
+
+
+
 
 
 
