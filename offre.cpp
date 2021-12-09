@@ -227,8 +227,8 @@ bool offre::points(int id_etudiant , int points )
     query.bindValue(":COLUMN1",res);
     query.bindValue(":POINTS",res2);
     return query.exec();
-    //poineeeeeeeeeeeeeeeeeeeeeeeeeeeeeeet
-    //t3eeebt
+    //poineeeeeeeeeeeeeeeeeeeeeeeet
+
 }
 
 bool offre::affecter(int num_offre , int id_etudiant )
@@ -246,5 +246,6 @@ bool offre::affecter(int num_offre , int id_etudiant )
 
     return query.exec()&&query2.exec();
 }
+
 
 
