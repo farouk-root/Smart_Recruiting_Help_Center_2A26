@@ -30,8 +30,69 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
+    <widget class="QWidget" name="page_login">
+     <widget class="QPushButton" name="LOGIN">
+      <property name="geometry">
+       <rect>
+        <x>622</x>
+        <y>427</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>LOGIN</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="PASSWORD">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>300</y>
+        <width>231</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_51">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>310</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Password</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_52">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>230</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="USERNAME">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>220</y>
+        <width>231</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="page_0">
      <widget class="QPushButton" name="Module_employe">
       <property name="geometry">
@@ -693,6 +754,45 @@ color: rgb(117, 117, 176);</string>
        <string>Return Menu</string>
       </property>
      </widget>
+     <widget class="QLabel" name="arduino_msg_mouadh">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>570</y>
+        <width>271</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Accept_mouadh">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>600</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Accepter</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Decline_mouadh">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>600</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refuser</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -1223,6 +1323,45 @@ color: rgb(117, 117, 176);</string>
        <string>rechercheAdresse</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="Decline_farouk">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>580</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refuser</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="arduino_msg_farouk">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>550</y>
+        <width>271</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Accept_farouk">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>580</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Accepter</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_5">
      <widget class="QLabel" name="label_22">
@@ -1695,6 +1834,45 @@ color: rgb(117, 117, 176);</string>
        <string>Return Menu</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="Decline_dhia">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>600</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refuser</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="arduino_msg_dhia">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>570</y>
+        <width>271</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Accept_dhia">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>600</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Accepter</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_8">
      <widget class="QLabel" name="label_35">
@@ -2124,7 +2302,7 @@ color: rgb(117, 117, 176);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="page_13">
      <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
        <rect>
@@ -2554,6 +2732,61 @@ color: rgb(117, 117, 176);</string>
         <string>Stats</string>
        </attribute>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="Decline_manef">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>630</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Refuser</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Accept_manef">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>630</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Accepter</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="return_Manef">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>620</y>
+        <width>211</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(69, 69, 104);</string>
+      </property>
+      <property name="text">
+       <string>Return Menu</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="arduino_msg_manef">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>600</y>
+        <width>271</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
      </widget>
     </widget>
    </widget>

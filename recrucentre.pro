@@ -4,6 +4,7 @@ QT+=network
 QT +=svg
 QT       += core gui multimedia multimediawidgets
 QT       +=widgets
+QT       += core gui  serialport charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
@@ -20,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     connection.cpp \
     demande.cpp \
     employes.cpp \
@@ -36,6 +38,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    arduino.h \
     connection.h \
     demande.h \
     employes.h \
@@ -59,4 +62,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     backgroun.qrc \
-    qml.qrc
+    qml.qrc \
+    translate.qrc

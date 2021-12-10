@@ -34,6 +34,10 @@
 #include<QDirModel>
 #include <qrcode.h>
 
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QSqlRecord>
+
 
 
 #include "mainwindow.h"
@@ -69,6 +73,17 @@ MainWindow::MainWindow(QWidget *parent)
     employes e;
     ui->tableView->setModel(e.afficher());
 
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+
 }
 
 MainWindow::~MainWindow()
@@ -76,9 +91,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+
+
 void MainWindow::on_ajouter_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
 
 }
 
@@ -550,7 +569,7 @@ void MainWindow::on_nom_textEdited(const QString &arg1)
 
 void MainWindow::on_pushButton_2_clicked()
 {
-   ui->stackedWidget->setCurrentIndex(1);
+   ui->stackedWidget->setCurrentIndex(2);
 }
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -633,22 +652,22 @@ void MainWindow::on_sendBtn_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 void MainWindow::on_exitBtn_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Module_employe_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void MainWindow::on_pushButton_6_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 
@@ -659,14 +678,14 @@ void MainWindow::on_pushButton_6_clicked()
 
 void MainWindow::on_Module_entreprise_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(5);
     ui->afficher->setModel(e.afficher());
 
 }
 
 void MainWindow::on_Farouk_return_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Valider_mod_farouk_clicked()
@@ -695,7 +714,7 @@ void MainWindow::on_Valider_mod_farouk_clicked()
         QMessageBox::critical(nullptr, QObject::tr("Ajout non effectuée"),
                     QObject::tr("Ajout non effectue.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 /*void MainWindow::on_pushButton_clicked()
@@ -705,7 +724,7 @@ void MainWindow::on_Valider_mod_farouk_clicked()
 
 void MainWindow::on_Ajouter_farouk_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(6);
     ui->le_id_farouk->setValidator( new QIntValidator(0, 99999999, this));
     ui->le_num_farouk->setValidator( new QIntValidator(0, 99999999, this));
 }
@@ -730,7 +749,7 @@ void MainWindow::on_supprimer_farouk_clicked()
 
 void MainWindow::on_Modifier_farouk_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    ui->stackedWidget->setCurrentIndex(7);
 }
 
 void MainWindow::on_Modifier_farouk_2_clicked()
@@ -753,7 +772,7 @@ void MainWindow::on_Modifier_farouk_2_clicked()
           QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
                                   QObject::tr("modification non établie"),
                                   QMessageBox::Cancel);}
-          ui->stackedWidget->setCurrentIndex(4);
+          ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_Trie_botton_clicked()
@@ -812,7 +831,7 @@ void MainWindow::on_rechercheAdresse_textChanged(const QString &arg1)
 
 void MainWindow::on_Email_farouk_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(4);
 
 }
 
@@ -837,7 +856,7 @@ void MainWindow::on_Map_farouk_clicked()
 
 void MainWindow::on_Module_offre_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(7);
+    ui->stackedWidget->setCurrentIndex(8);
     ui->afficher_dhia->setModel(o.afficher());
 }
 
@@ -845,7 +864,7 @@ void MainWindow::on_Ajouter_dhia_clicked()
 {
     ui->le_numoffre_dhia->setValidator( new QIntValidator(0, 99999999, this));
     ui->le_num_dhia->setValidator( new QIntValidator(0, 99999999, this));
-    ui->stackedWidget->setCurrentIndex(8);
+    ui->stackedWidget->setCurrentIndex(9);
 }
 
 void MainWindow::on_Valider_ajout_offre_clicked()
@@ -873,7 +892,7 @@ void MainWindow::on_Valider_ajout_offre_clicked()
         QMessageBox::critical(nullptr, QObject::tr("Ajout non effectuée"),
                     QObject::tr("Ajout non effectue.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
-    ui->stackedWidget->setCurrentIndex(7);
+    ui->stackedWidget->setCurrentIndex(8);
 }
 
 void MainWindow::on_supprimer_offrre_clicked()
@@ -896,7 +915,7 @@ void MainWindow::on_supprimer_offrre_clicked()
 
 void MainWindow::on_Modifier_dhia_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(9);
+    ui->stackedWidget->setCurrentIndex(10);
 }
 
 void MainWindow::on_Modifier_offre_clicked()
@@ -920,12 +939,12 @@ void MainWindow::on_Modifier_offre_clicked()
           QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
                                   QObject::tr("modification non établie"),
                                   QMessageBox::Cancel);}
-          ui->stackedWidget->setCurrentIndex(7);
+          ui->stackedWidget->setCurrentIndex(8);
 }
 
 void MainWindow::on_return_dhia_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Actualiser_dhia_clicked()
@@ -990,7 +1009,7 @@ void MainWindow::on_rechercheAdresse_dhia_textChanged(const QString &arg1)
 
 void MainWindow::on_Affecter_dhia_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(10);
+    ui->stackedWidget->setCurrentIndex(11);
 
 }
 
@@ -1015,7 +1034,7 @@ void MainWindow::on_affectation_clicked()
           QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
                                   QObject::tr("modification non établie"),
                                   QMessageBox::Cancel);}
-          ui->stackedWidget->setCurrentIndex(7);
+          ui->stackedWidget->setCurrentIndex(8);
 }
 
 void MainWindow::on_valider_points_clicked()
@@ -1035,12 +1054,12 @@ void MainWindow::on_valider_points_clicked()
          QMessageBox::critical(nullptr,QObject::tr("ERROR404"),
                                  QObject::tr("modification non établie"),
                                  QMessageBox::Cancel);}
-         ui->stackedWidget->setCurrentIndex(7);
+         ui->stackedWidget->setCurrentIndex(8);
 }
 
 void MainWindow::on_Points_dhia_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(11);
+    ui->stackedWidget->setCurrentIndex(12);
 }
 
 
@@ -1142,7 +1161,7 @@ void MainWindow::on_ajouter_manef_clicked()
 void MainWindow::on_Module_demande_clicked()
 {
     ui->tableView_3->setModel(D.afficher());
-     ui->stackedWidget->setCurrentIndex(12);
+     ui->stackedWidget->setCurrentIndex(13);
 }
 
 void MainWindow::on_pb_search_2_clicked()
@@ -1191,4 +1210,158 @@ void MainWindow::on_pb_edit_2_clicked()
 void MainWindow::on_le_tri_2_clicked()
 {
  ui->tableView_3->setModel(D.sortid_up());
+}
+
+void MainWindow::on_LOGIN_clicked()
+{
+
+        QString NAME=ui->USERNAME->text();
+           QString ID=ui->PASSWORD->text();
+
+
+
+          /* if(username=="" || password=="")
+           {
+       QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("Please fill in the fields"),QMessageBox::Ok);
+           }
+           QSqlQuery qry;
+           //if(qry.exec("SELECT * FROM EMPLOYEE WHERE USERNAME='"+username+ "' AND PASSWORD='"+password+"'"))   employes
+           if(qry.exec("SELECT * FROM employes WHERE ID ='"+password+"' AND NOM ='"+username+"'"))
+          {
+
+              /* int count=0;
+               while(qry.next())
+               {
+                   count++;
+               }
+               if(count==1)*/
+               //{
+                   /*QMessageBox::information(nullptr,QObject::tr("Signin"),QObject::tr("connected successfully"),QMessageBox::Ok);
+
+                   ui->stackedWidget->setCurrentIndex(1);
+
+              // }
+
+
+              // else
+               QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("username and password are not correct"),QMessageBox::Ok);
+
+    }
+           else QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("username and password are not correct"),QMessageBox::Ok);*/
+
+
+
+
+
+
+
+
+
+
+           /* QSqlQueryModel *queryModel = new QSqlQueryModel;
+           queryModel->setQuery(QString("SELECT * FROM employes WHERE NAME = '%1' AND Password = '%2' ").arg(username,password)); //select the row of where the Username == username
+               if ( queryModel->query().exec() )
+               ui->stackedWidget->setCurrentIndex(1);
+           if(queryModel->record(0).value(0).toString()== password) //if a row is found check column 2 for password
+           {
+
+               ui->stackedWidget->setCurrentIndex(1);
+               /*destroy(); //destroy current window
+               if(queryModel->record(0).value(3).toString()== 1) //if id is equal to one log in as user
+               {
+                   user.showMaximized();
+               }
+               else {
+                   dbManager.showMaximized();
+               }*/
+          /* }
+           else {
+
+               qWarning("Wrong Password or Username");
+               QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("Please fill in the fields"),QMessageBox::Ok);
+           }*/
+
+
+
+
+
+
+
+
+
+
+           QSqlQuery qry ;
+           if ( qry.exec("SELECT ID , NAME FROM employes where ID=\'"+ ID + "\' AND NAME =\'"+ NAME + "\' "))
+           {
+               if(qry.next())
+               {
+                   ui->stackedWidget->setCurrentIndex(1);
+                   QMessageBox::information(nullptr,QObject::tr("Signin"),QObject::tr("connected successfully"),QMessageBox::Ok);
+               }
+               else
+                  QMessageBox::critical(nullptr,QObject::tr("Signin"),QObject::tr("username and password are not correct"),QMessageBox::Ok);
+           }
+
+
+}
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+
+
+
+    if (data=="0")
+
+    {
+        ui->arduino_msg_mouadh->setText("client en attente !");
+        // si les données reçues de arduino via la liaison série sont égales à 0
+        ui->arduino_msg_farouk->setText("client en attente !");
+        ui->arduino_msg_dhia->setText("client en attente !");
+        ui->arduino_msg_manef->setText("client en attente !");
+
+}
+}
+
+
+
+void MainWindow::on_Accept_mouadh_clicked()
+{
+    A.write_to_arduino("1");
+    ui->arduino_msg_mouadh->setText("client  Accepté !");
+}
+
+void MainWindow::on_Accept_farouk_clicked()
+{
+    A.write_to_arduino("1");
+    ui->arduino_msg_farouk->setText("client  Accepté !");
+}
+
+void MainWindow::on_Accept_dhia_clicked()
+{
+    A.write_to_arduino("1");
+    ui->arduino_msg_dhia->setText("client  Accepté !");
+}
+
+void MainWindow::on_Accept_manef_clicked()
+{
+    A.write_to_arduino("1");
+    ui->arduino_msg_manef->setText("client  Accepté !");
+}
+
+
+
+void MainWindow::on_Decline_mouadh_clicked()
+{
+    A.write_to_arduino("2");
+    ui->arduino_msg_mouadh->setText("client  Refusé !");
+}
+
+
+
+
+
+void MainWindow::on_Decline_farouk_clicked()
+{
+    A.write_to_arduino("2");
+    ui->arduino_msg_farouk->setText("client  Refusé !");
 }
