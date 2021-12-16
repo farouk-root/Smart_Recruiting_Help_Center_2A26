@@ -4,7 +4,6 @@ QT+=network
 QT +=svg
 QT       += core gui multimedia multimediawidgets
 QT       +=widgets
-QT       += core gui  serialport charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
@@ -62,5 +61,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     backgroun.qrc \
-    qml.qrc \
-    translate.qrc
+    qml.qrc

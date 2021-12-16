@@ -6,34 +6,11 @@
 #include <QDebug>
 #include <QDialog>
 #include <QLineEdit>
-
-#include <QTranslator>
-#include <QInputDialog>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
     connection c;
-
-    QTranslator t ;
-        QStringList languages ;
-        languages << "Français"<< "English" ;
-
-        QString lang = QInputDialog::getItem(NULL,"Select Language",
-                                             "Language", languages);
-
-        if(lang == "English")
-        {
-            t.load(":/anglais.qm");
-        }
-
-        if(lang != "Français")
-        {
-            a.installTranslator(&t);
-        }
-
-
     a.setStyle("fusion") ;
     //qApp->setStyleSheet("QLineEdit { background-color: yellow }");
 

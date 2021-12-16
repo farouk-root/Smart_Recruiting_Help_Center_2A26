@@ -9,7 +9,6 @@
 #include "entreprise.h"
 #include "offre.h"
 #include "demande.h"
-#include "arduino.h"
 
 
 
@@ -27,9 +26,6 @@ public:
     ~MainWindow();
 private slots:
 
-
-    void update_label();   // slot permettant la mise à jour du label état de la lampe 1,
-       // ce slot est lancé à chaque réception d'un message de Arduino
 
     void on_ajouter_clicked();
 
@@ -209,28 +205,10 @@ private slots:
 
        void on_le_tri_2_clicked();
 
-       void on_LOGIN_clicked();
-
-       void on_Accept_mouadh_clicked();
-
-       void on_Accept_farouk_clicked();
-
-       void on_Accept_dhia_clicked();
-
-       void on_Accept_manef_clicked();
-
-       void on_Decline_mouadh_clicked();
-
-       void on_Decline_farouk_clicked();
-
 private:
     Ui::MainWindow *ui;
     Entreprise e;
     offre o ;
     Demande D;
-
-    QByteArray data; // variable contenant les données reçues
-
-    Arduino A; // objet temporaire
 };
 #endif // MAINWINDOW_H
