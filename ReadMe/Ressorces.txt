@@ -1,0 +1,15 @@
+Helo Friends , This is a link to GoogleDrive Repository Where you can 
+find all ressorces and commits That brings us to succeed achieving this 
+incredible experience . 
+in this link you'll find Specifically : 
+- cahier des charges (PDF) et la présentation (PPT)
+- Les diagrammes de cas d'utilisation : le diagramme global de l'application
+- Le diagramme de classe
+- Le modele relationnel
+- Le modele entités/associations 
+- Presentation PPT ( Marketing )
+2- Video publicitaire pour commercialiser (03min).
+3- Maquette arduino
+4- Poster, cartes visites, flyers
+
+link : https://drive.google.com/drive/folders/1yv-6k5lGIFvbJJ4ABm_yH3HzMDaiq-ej?usp=sharing
